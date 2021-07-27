@@ -1,0 +1,31 @@
+﻿@model StoreSampel.UI.Areas.Admin.ViewModel.TypeViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<form action="/admin/type/create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <p> مدل را انتخاب کنید</p>
+            <select class="select2 form-control " asp-for="ModelId" asp-items="@ViewBag.Model">
+            </select>
+        </div>
+        <div class="col-md-6">
+            <p> تیپ را انتخاب کنید</p>
+            <div class="form-outline">
+                <input type="text" id="form1" asp-for="Name" class="form-control form-control-lg"/>
+                <label class="form-label" for="form1" asp-for="Name"></label>
+            </div>
+        </div>
+
+        <div class="col-md-12 mt-5">
+            <button class="btn btn-primary float-end" type="submit">ثبت</button>
+        </div>
+    </div>
+
+</form>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

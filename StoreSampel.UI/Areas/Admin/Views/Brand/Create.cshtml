@@ -1,0 +1,22 @@
+﻿@model StoreSampel.UI.Areas.Admin.ViewModel.BrandViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>ایجاد برند</h1>
+
+<form action="/admin/brand/Create" method="post" class="row g-3 needs-validation" >
+    <div asp-validation-summary="All" class=" text-danger"></div>
+    <div class="form-outline">
+        <input type="text" id="form1" asp-for="Name" class="form-control form-control-lg"/>
+        <label class="form-label" for="form1" asp-for="Name"></label>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary float-end" type="submit">ثبت</button>
+    </div>
+</form>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+}
