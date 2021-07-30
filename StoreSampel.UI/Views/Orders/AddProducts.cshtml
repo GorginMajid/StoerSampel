@@ -1,0 +1,28 @@
+﻿@model StoreSampel.UI.Models.ProductsViewModel.ProductVIewModel
+@{
+    ViewData["Title"] = "AddProducts";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form asp-action="AddProducts" method="post">
+    <div class="form-outline">
+        <input asp-for="ProductType" id="form1" class="form-control" />
+        <label class="form-label" asp-for="ProductType"></label>
+    </div>
+    <div class="form-outline">
+        <input asp-for="ProductValues" id="form1" class="form-control" />
+        <label class="form-label" asp-for="ProductValues"></label>
+    </div>
+    <div class="form-outline">
+        <input asp-for="ProductType" id="form1" class="form-control" />
+        <label class="form-label" asp-for="ProductType"></label>
+    </div>
+    <div class="form-outline">
+        <input asp-for="ProductValues" id="form1" class="form-control" />
+        <label class="form-label" asp-for="ProductValues"></label>
+    </div>
+    <div class="col-12 mt-4">
+        <button type="submit" class="btn btn-success btn-block">ثبت</button>
+    </div>
+</form>
+

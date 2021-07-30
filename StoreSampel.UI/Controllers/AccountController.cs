@@ -40,6 +40,7 @@ namespace StoreSampel.UI.Controllers
 
             if (ModelState.IsValid)
             {
+               
                 if (_signInManager.IsSignedIn(User))
                 {
                     return Redirect("/");
@@ -108,6 +109,11 @@ namespace StoreSampel.UI.Controllers
             }
 
             return View(model);
+        }
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return Redirect("/Account/login");
         }
     }
 }

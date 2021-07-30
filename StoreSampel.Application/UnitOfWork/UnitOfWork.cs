@@ -11,6 +11,7 @@ namespace StoreSampel.Application.UnitOfWork
         private IBrandRepository _brandRepository;
         private IModelRepository _modelRepository;
         private ITypeRepository _typeRepository;
+        private IOrderRepository _orderRepository;
         public UnitOfWork(StoreSampelContext context)
         {
             _Context = context;
@@ -41,6 +42,18 @@ namespace StoreSampel.Application.UnitOfWork
                 return _modelRepository;
             }
         }
+
+        public IOrderRepository OrderRepository
+        {
+            get
+            {
+                if (_orderRepository == null)
+                    _orderRepository = new OrderRepository(this);
+
+                return _orderRepository;
+            }
+        }
+
         public ITypeRepository TypeRepository
         {
             get

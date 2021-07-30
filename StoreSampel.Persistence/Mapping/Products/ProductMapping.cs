@@ -10,9 +10,9 @@ namespace StoreSampel.Persistence.Mapping.Products
         {
             builder.ToTable("Products");
             builder.HasKey(c => c.Id);
-            builder.HasOne(c => c.User)
+            builder.HasOne(c => c.Order)
                 .WithMany(c => c.Products)
-                .HasForeignKey(c => c.UserId);
+                .HasForeignKey(c => c.OrderId);
         }
     }
 }

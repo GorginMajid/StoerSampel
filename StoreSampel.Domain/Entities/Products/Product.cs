@@ -7,17 +7,17 @@ using StoreSampel.Domain.Identity;
 
 namespace StoreSampel.Domain.Entities.Products
 {
-    public class Product:BaseEnities
+    public  class Product:BaseEnities
     {
         public string ProductType { get; set; }
         public long ProductValue { get; set; }
 
-        [ForeignKey("User")]
-        public int UserId { get; set; }
+        [ForeignKey("Order")]
+        public string OrderId { get; set; }
 
         #region NavigationProprty
 
-        public ApplicationUser User { get; set; }
+        public Order Order { get; set; }
       
 
         #endregion

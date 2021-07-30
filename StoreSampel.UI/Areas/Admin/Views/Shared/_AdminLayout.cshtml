@@ -33,28 +33,40 @@
             </button>
 
             <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Navbar brand -->
-                <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
-                         height="15"
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                   href="#"
+                   id="navbarDropdownMenuLink"
+                   role="button"
+                   data-mdb-toggle="dropdown"
+                   aria-expanded="false">
+                    <img src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                         class="rounded-circle"
+                         height="25"
                          alt=""
                          loading="lazy" />
+                    
+                    @User.Identity.Name
                 </a>
-                <!-- Left links -->
-                <ul class="navbar-nav  mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">داشبورد</a>
+                <ul class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdownMenuLink">
+                    <li>
+                        <a class="dropdown-item" href="#">My profile</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Team</a>
+                    <li>
+                        <a class="dropdown-item" href="#">Settings</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Projects</a>
+                    <li>
+                        <a class="dropdown-item" href="/Account/LogOut">Logout</a>
                     </li>
                 </ul>
-                <!-- Left links -->
-            </div>
+            }
+            else
+            {
+                <a class="btn btn-primary" href="/Account/Login">ورود</a>
+                <a class="btn btn-success ms-2" href="Account/Register">ثبت نام</a>
+            }
             <!-- Collapsible wrapper -->
             <!-- Right elements -->
             <div class="d-flex align-items-center">
@@ -87,47 +99,25 @@
                 </ul>
 
                 <!-- Avatar -->
-                <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                   href="#"
-                   id="navbarDropdownMenuLink"
-                   role="button"
-                   data-mdb-toggle="dropdown"
-                   aria-expanded="false">
-                    <img src="https://mdbootstrap.com/img/new/avatars/2.jpg"
-                         class="rounded-circle"
-                         height="25"
-                         alt=""
-                         loading="lazy" />
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuLink">
-                    <li>
-                        <a class="dropdown-item" href="#">My profile</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Settings</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Logout</a>
-                    </li>
-                </ul>
+           
             </div>
             <!-- Right elements -->
         </div>
         <!-- Container wrapper -->
     </nav>
     <!-- Navbar -->
-    <div class="container mt-5 ">
-        @RenderBody()
-    </div>
+<div class="container mt-5 ">
+    @RenderBody()
+</div>
+
     <!-- MDB -->
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="~/js/site.js"></script>
-    @RenderSection("Scripts", false)
-@RenderSection("Ajax", false)
+@await RenderSectionAsync("Scripts", false)
+@await RenderSectionAsync("Ajax", false)
 
 
 </body>

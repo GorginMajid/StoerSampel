@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
+using StoreSampel.Domain.Entities.Orders;
 using StoreSampel.Domain.Entities.Products;
 
 namespace StoreSampel.Domain.Identity
 {
-    public class ApplicationUser:IdentityUser<int>
+    public sealed class ApplicationUser:IdentityUser<int>
     {
         public string FullName { get; set; }
         public DateTime CreateDate { get; set; }
@@ -16,7 +17,7 @@ namespace StoreSampel.Domain.Identity
 
         #region NavigationProprty
 
-        public virtual ICollection<Product> Products { get; set; }
+        public ICollection<Order> Orders { get; set; }
 
 
         #endregion

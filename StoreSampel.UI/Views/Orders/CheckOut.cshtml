@@ -1,0 +1,100 @@
+﻿@model StoreSampel.UI.Models.OrdersViewModel.OrderViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form asp-action="CheckOut" method="post">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="BrandID"></label>
+                <select id="BrandID" asp-for="BrnadId" asp-items="@ViewBag.Brand" class="select2 form-control"></select>
+                <span asp-validation-for="BrnadId" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="ModelID"></label>
+                <select id="ModelID" asp-for="ModelId" class="select2 form-control">
+                    <option value="">برند را انتخاب کنید</option>
+                </select>
+                <span asp-validation-for="ModelId" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="TypeID"></label>
+                <select id="TypeID" asp-for="TypeId" class="select2 form-control"></select>
+                <span asp-validation-for="TypeId" class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-success btn-block">ثبت</button>
+        </div>
+
+    </div>
+</form>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"></partial>
+}
+@section Ajax
+{
+
+    <script>
+
+        $("#BrandID").change(function () {
+            console.log("ok");
+            $.ajax({
+
+                url: "@Url.Action("GetModel")",
+                type: "get",
+                dateType: "json",
+                data: { id: $(this).val()},
+                success: function (data) {
+                    var ModelSelect = $("#ModelID");
+                    ModelSelect.empty();
+                    var jsonArray = JSON.parse(data);
+                    for (var i = 0; i < jsonArray.length; i++) {
+                        ModelSelect.append(
+                            $('<option/>').attr('value', jsonArray[i]["Id"]).text(jsonArray[i]["Name"])
+                        );
+                    }
+                },
+
+                error: function () { alert('Error');}
+            });
+        });
+        $("#ModelID").change(function () {
+            console.log("ok");
+            $.ajax({
+
+                url: "@Url.Action("GetBrands")",
+                type: "get",
+                dateType: "json",
+                data: { id: $(this).val()},
+                success: function (data) {
+                    var ModelSelect = $("#TypeID");
+                    ModelSelect.empty();
+                    var jsonArray = JSON.parse(data);
+                    for (var i = 0; i < jsonArray.length; i++) {
+                        ModelSelect.append(
+                            $('<option/>').attr('value', jsonArray[i]["Id"]).text(jsonArray[i]["Name"])
+                        );
+                    }
+                },
+
+                error: function () { alert('Error');}
+            });
+        });
+    </script>
+
+
+}

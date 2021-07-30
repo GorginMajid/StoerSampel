@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using StoreSampel.Application.Contracts;
@@ -10,7 +12,7 @@ using StoreSampel.UI.Areas.Admin.ViewModel;
 
 namespace StoreSampel.UI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize(Roles = "Admin")]
     public class ModelController : Controller
     {
         private const string redirectToModel = "/admin/model/";

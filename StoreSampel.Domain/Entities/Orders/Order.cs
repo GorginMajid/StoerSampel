@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using StoreSampel.Domain.BaseEntities;
 using StoreSampel.Domain.Entities.Brands;
 using StoreSampel.Domain.Entities.Models;
+using StoreSampel.Domain.Entities.Products;
 using StoreSampel.Domain.Entities.Types;
 using StoreSampel.Domain.Identity;
 
@@ -35,7 +37,7 @@ namespace StoreSampel.Domain.Entities.Orders
 
         public ApplicationUser User { get; set; }
 
-      
+        public ICollection<Product> Products { get; set; }
         #endregion
     }
 

@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using StoreSampel.Application.Contracts;
 using StoreSampel.UI.Areas.Admin.ViewModel;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Type = StoreSampel.Domain.Entities.Types.Type;
 
 namespace StoreSampel.UI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize(Roles = "Admin")]
     public class TypeController : Controller
     {
         private const string redirectTotype = "/admin/type/";

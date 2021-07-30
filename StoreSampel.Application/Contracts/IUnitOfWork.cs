@@ -9,7 +9,8 @@ namespace StoreSampel.Application.Contracts
         StoreSampelContext _Context { get; }
         IBrandRepository BrandRepository { get; }
         IModelRepository ModelRepository { get; }
-         ITypeRepository TypeRepository { get;  }
+        ITypeRepository TypeRepository { get; }
+        IOrderRepository OrderRepository { get; }
         Task Commit();
     }
 }
