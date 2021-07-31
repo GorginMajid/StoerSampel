@@ -1,0 +1,112 @@
+﻿@model IEnumerable<StoreSampel.Application.BasketsDTO.BasketDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>لیست سفارشات</h1>
+<!-- Modal -->
+<div class="modal top fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                    بستن
+                </button>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-responsive" >
+    <thead>
+    <tr>
+        <th scope="col">شماره سفارش</th>
+        <th scope="col">نام و نام خانوادگی</th>
+        <th scope="col">وضعیت سفارش</th>
+        <th scope="col">نام برند</th>
+        <th scope="col">نام مدل</th>
+        <th scope="col">نام تیپ</th>
+        <th scope="col">محصولات سفارش داده شده!</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model != null)
+    {
+        @foreach (var item in Model)
+         {
+             <tr class="table-dark">
+                 <th scope="row">@item.OrderId</th>
+                 <td>@ViewData["FullName"]</td>
+                 <td>@item.Status</td>
+                 <td>@item.BrnadName</td>
+                 <td>@item.ModelName</td>
+                 <td>@item.TypeName</td>
+                 <td>
+                     <button class="btn btn-warning" onclick="GetProducts('@item.OrderId')"> نمایش محصولات سفارش داده شده!</button>
+                 </td>
+
+             </tr>
+           
+         }
+    }
+    else
+    {
+        <tr>
+            <th scope="row">سبد خرید شما خالی  می باشد !</th>
+
+        </tr>
+    }
+
+    </tbody>
+</table>
+@section Ajax
+{
+    <script>
+
+        function GetProducts(id) {
+           $.ajax({
+
+               url: "@Url.Action("GetProducts")",
+               type: "post",
+               dateType: "json",
+               data: { id: id},
+               success: function (data) {
+                   var modalTitle = $(".modal-title");
+                   var modalBody = $(".modal-body");
+                   modalTitle.empty();
+                   modalBody.empty();
+                   var jsonArray = JSON.parse(data);
+                   modalTitle.append('شناسه سفارش :'+jsonArray[0]["OrderId"]);
+                   for (let i = 0; i < jsonArray.length; i++) {
+
+                       modalBody.append("<span class='text-success'>"+ ' نوع کالا:' + jsonArray[i]["ProductType"]+ "</span>");
+                       modalBody.append("<span class='text-warning'>" + ' تعداد کالا:' + jsonArray[i]["ProductValue"] + "</span>");
+                       modalBody.append("<br/>");
+
+                   }
+                   var myModalEl = document.getElementById('exampleModal');
+                   var modal = new mdb.Modal(myModalEl);
+                   modal.show();
+               },
+
+               error: function () { alert('Error');}
+           });
+        }
+        $("#ShowModal").click(function (e) { 
+            e.preventDefault();
+           
+        });
+
+
+    </script>
+ 
+}
