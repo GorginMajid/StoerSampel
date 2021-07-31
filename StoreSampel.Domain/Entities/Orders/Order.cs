@@ -40,11 +40,11 @@ namespace StoreSampel.Domain.Entities.Orders
         public ICollection<Product> Products { get; set; }
         #endregion
     }
-
     public enum Status
     {
-        Success=1,
-        Pending=2,
-        NotApproved=3
+        Success = 1,
+        Pending = 2,
+        NotApproved = 3
     }
+
 }

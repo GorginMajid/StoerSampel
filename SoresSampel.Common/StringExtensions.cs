@@ -4,6 +4,12 @@ namespace StorSampel.Common
 {
     public static class StringExtensions
     {
+        public enum Status
+        {
+            Success = 1,
+            Pending = 2,
+            NotApproved = 3
+        }
         public static bool HasValue(this string value, bool ignoreWhiteSpace = true)
         {
             return ignoreWhiteSpace ? !string.IsNullOrWhiteSpace(value) : !string.IsNullOrEmpty(value);

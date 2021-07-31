@@ -136,6 +136,26 @@ namespace StoreSampel.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Brands");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 77, DateTimeKind.Local).AddTicks(6285),
+                            Name = "خانواده پژو"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 79, DateTimeKind.Local).AddTicks(2829),
+                            Name = "خانواده رنو"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 79, DateTimeKind.Local).AddTicks(2991),
+                            Name = "خانواده پراید"
+                        });
                 });
 
             modelBuilder.Entity("StoreSampel.Domain.Entities.Models.Model", b =>
@@ -159,6 +179,64 @@ namespace StoreSampel.Persistence.Migrations
                     b.HasIndex("BrandId");
 
                     b.ToTable("Models");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BrandId = 3L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 86, DateTimeKind.Local).AddTicks(9505),
+                            Name = "111"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BrandId = 3L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 87, DateTimeKind.Local).AddTicks(1767),
+                            Name = "131"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BrandId = 3L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 87, DateTimeKind.Local).AddTicks(1842),
+                            Name = "141"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 1L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 87, DateTimeKind.Local).AddTicks(1856),
+                            Name = "405GLX"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 1L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 87, DateTimeKind.Local).AddTicks(1868),
+                            Name = "405slx"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BrandId = 2L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 87, DateTimeKind.Local).AddTicks(1888),
+                            Name = "مگان"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BrandId = 2L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 87, DateTimeKind.Local).AddTicks(1899),
+                            Name = "سانرو"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BrandId = 2L,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 87, DateTimeKind.Local).AddTicks(1911),
+                            Name = "کولیوس"
+                        });
                 });
 
             modelBuilder.Entity("StoreSampel.Domain.Entities.Orders.Order", b =>
@@ -244,6 +322,78 @@ namespace StoreSampel.Persistence.Migrations
                     b.HasIndex("ModelId");
 
                     b.ToTable("Types");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(4659),
+                            ModelId = 5,
+                            Name = "بنزینی"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(6000),
+                            ModelId = 4,
+                            Name = "بنزینی"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(6062),
+                            ModelId = 4,
+                            Name = "دوگانه سوز"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(6075),
+                            ModelId = 1,
+                            Name = "بنزینی"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(6087),
+                            ModelId = 1,
+                            Name = "بنزینی slx"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(6154),
+                            ModelId = 6,
+                            Name = "بنزینی 1700cc"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(6168),
+                            ModelId = 6,
+                            Name = "بنزینی 2000cc"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(6180),
+                            ModelId = 7,
+                            Name = "بنزینی 1800cc"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(6192),
+                            ModelId = 7,
+                            Name = "بنزینی cross over"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreateDate = new DateTime(2021, 7, 31, 10, 19, 24, 89, DateTimeKind.Local).AddTicks(6207),
+                            ModelId = 8,
+                            Name = "بنزینی "
+                        });
                 });
 
             modelBuilder.Entity("StoreSampel.Domain.Identity.ApplicationRole", b =>

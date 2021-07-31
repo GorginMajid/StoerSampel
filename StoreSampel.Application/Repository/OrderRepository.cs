@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using StoreSampel.Application.Contracts;
 using StoreSampel.Domain.Entities.Orders;
 
@@ -16,7 +17,9 @@ namespace StoreSampel.Application.Repository
         }
         public async Task<IEnumerable<Order>> GetAllOrders()
         {
-            var result = await _uw.BaseRepository<Order>().FindAllAsync();
+            var result = await _uw._Context.Orders.Include(b=>b.Brand).Include(m=>m.Model)
+                .Include(y=>y.Type)
+                .Include(c=>c.User).ToListAsync();
             return result.ToList();
         }
 
@@ -33,7 +36,7 @@ namespace StoreSampel.Application.Repository
 
         public async Task DeleteOrder(Order order)
         {
-            _uw.BaseRepository<Order>().Delete(order);
+            _uw.BaseRepository<Order>().Delete(order);  await Task.CompletedTask;
         }
 
         public async Task DeleteOrder(string orderId)
@@ -44,7 +47,7 @@ namespace StoreSampel.Application.Repository
 
         public async Task UpdateOrder(Order order)
         {
-            _uw.BaseRepository<Order>().Update(order);
+            _uw.BaseRepository<Order>().Update(order);  await Task.CompletedTask;
         }
     }
 }

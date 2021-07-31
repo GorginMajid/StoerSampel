@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commnon", "Commnon", "{B401394D-99B0-450D-AA77-2745EB2291A4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\NewsWebsite\NewsWebsite.Common\ConvertDateTime.cs = ..\..\..\Desktop\NewsWebsite\NewsWebsite.Common\ConvertDateTime.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{43121548-25FD-48A6-B1CC-465715B34750}"
 EndProject
@@ -11,17 +14,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{5A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{DFF1FF1C-01EF-4BAE-A5FF-C1ED3C73C644}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreSampel.UI", "StoreSampel.UI\StoreSampel.UI.csproj", "{514545CD-B56B-4F62-B588-5B0097E97D47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreSampel.UI", "StoreSampel.UI\StoreSampel.UI.csproj", "{514545CD-B56B-4F62-B588-5B0097E97D47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreSampel.Domain", "StoreSampel.Domain\StoreSampel.Domain.csproj", "{59CCE305-8416-4F1B-A055-2DF0B573F771}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreSampel.Domain", "StoreSampel.Domain\StoreSampel.Domain.csproj", "{59CCE305-8416-4F1B-A055-2DF0B573F771}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreSampel.Application", "StoreSampel.Application\StoreSampel.Application.csproj", "{01ABDEE4-8340-4FAA-AC93-018A2518ACFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreSampel.Application", "StoreSampel.Application\StoreSampel.Application.csproj", "{01ABDEE4-8340-4FAA-AC93-018A2518ACFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorSampel.Common", "SoresSampel.Common\StorSampel.Common.csproj", "{433F7E44-A2E1-41E4-80EB-A144ABD3334E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorSampel.Common", "SoresSampel.Common\StorSampel.Common.csproj", "{433F7E44-A2E1-41E4-80EB-A144ABD3334E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{907D4C86-84FE-49D3-9D54-ED1153B614EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreSampel.Persistence", "StoreSampel.Persistence\StoreSampel.Persistence.csproj", "{CF9E21B1-4E01-481F-BBB8-B746015E69B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreSampel.Persistence", "StoreSampel.Persistence\StoreSampel.Persistence.csproj", "{CF9E21B1-4E01-481F-BBB8-B746015E69B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -33,7 +33,7 @@ namespace StoreSampel.Application.Repository
 
         public async Task DeleteModel(Model model)
         {
-            _uw.BaseRepository<Model>().Delete(model);
+            _uw.BaseRepository<Model>().Delete(model);  await Task.CompletedTask;
         }
 
         public async Task DeleteModel(int ModelId)
@@ -44,7 +44,7 @@ namespace StoreSampel.Application.Repository
 
         public async Task UpdateModel(Model model)
         {
-            _uw.BaseRepository<Model>().Update(model);
+            _uw.BaseRepository<Model>().Update(model);  await Task.CompletedTask;
         }
 
 

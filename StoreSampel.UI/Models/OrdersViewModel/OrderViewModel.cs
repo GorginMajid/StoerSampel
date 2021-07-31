@@ -15,8 +15,13 @@ namespace StoreSampel.UI.Models.OrdersViewModel
         [Required(ErrorMessage = "لطفا تیپ را وارد کنید")]
         public int TypeId { get; set; }
 
-      
-   
+        [Display(Name = "نوع کالا")]
+        [Required(ErrorMessage = "لطفا نوع کالا را وارد کنید")]
+        public string[] ProductType { get; set; }
+        [Display(Name = "تعداد کالا")]
+        [Required(ErrorMessage = "لطفا تعداد کالا را وارد کنید")]
+        public long[] ProductValues { get; set; }
+
     }
 
   

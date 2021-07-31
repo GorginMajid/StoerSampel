@@ -33,7 +33,7 @@ namespace StoreSampel.Application.Repository
 
         public  async Task DeleteBrand(Brand Brand)
         {
-            _uw.BaseRepository<Brand>().Delete(Brand);
+            _uw.BaseRepository<Brand>().Delete(Brand);  await Task.CompletedTask;
         }
 
         public async Task DeleteBrand(long BrandId)
@@ -44,7 +44,7 @@ namespace StoreSampel.Application.Repository
 
         public async Task UpdateBrand(Brand brand)
         {
-            _uw.BaseRepository<Brand>().Update(brand);
+            _uw.BaseRepository<Brand>().Update(brand);  await Task.CompletedTask;
         }
     }
 }

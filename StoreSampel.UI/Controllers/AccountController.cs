@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using StoreSampel.Domain.Identity;
 using StoreSampel.UI.Models.AccountViewModel;
+using System;
+using System.Threading.Tasks;
 
 namespace StoreSampel.UI.Controllers
 {
@@ -23,10 +20,6 @@ namespace StoreSampel.UI.Controllers
             _roleManager = roleManager;
         }
 
-       
-
-
-
 
         [HttpGet]
         public IActionResult Login()
@@ -40,7 +33,7 @@ namespace StoreSampel.UI.Controllers
 
             if (ModelState.IsValid)
             {
-               
+
                 if (_signInManager.IsSignedIn(User))
                 {
                     return Redirect("/");
@@ -49,7 +42,7 @@ namespace StoreSampel.UI.Controllers
                 var user = await _userManager.FindByEmailAsync(model.UserName);
                 if (user != null)
                 {
-                
+
                     var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
 
                     if (result.Succeeded)
@@ -92,11 +85,11 @@ namespace StoreSampel.UI.Controllers
                     if (!await _userManager.IsInRoleAsync(user, "User"))
                     {
                         await _roleManager.CreateAsync(new ApplicationRole("User"));
-                       
-                       await _userManager.AddToRoleAsync(user, "User");
+
+                        await _userManager.AddToRoleAsync(user, "User");
                     }
-                    
-                  
+
+
                     if (result.Succeeded)
                     {
                         return Redirect("/");

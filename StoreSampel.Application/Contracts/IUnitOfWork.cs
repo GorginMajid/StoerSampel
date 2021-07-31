@@ -11,6 +11,9 @@ namespace StoreSampel.Application.Contracts
         IModelRepository ModelRepository { get; }
         ITypeRepository TypeRepository { get; }
         IOrderRepository OrderRepository { get; }
+        IProductRepository ProductRepository { get; }
+        IBasketRepository BasketRepository { get; }
+
         Task Commit();
     }
 }

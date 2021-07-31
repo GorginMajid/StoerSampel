@@ -17,14 +17,13 @@ using StoreSampel.UI.Models.ProductsViewModel;
 
 namespace StoreSampel.UI.Controllers
 {
-    [Authorize(Roles = "User,Admin")]
+    [Authorize(Roles = "User,admin")]
 
     public class OrdersController : Controller
     {
         private readonly IUnitOfWork _Uw;
         private readonly UserManager<ApplicationUser> _userManager;
-
-
+        
         public OrdersController(IUnitOfWork uw, UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
@@ -41,8 +40,6 @@ namespace StoreSampel.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> CheckOut(OrderViewModel model)
         {
-
-            var products = new List<Product>();
             if (ModelState.IsValid)
             {
                 var order = new Order
@@ -56,9 +53,22 @@ namespace StoreSampel.UI.Controllers
                     Status = Status.Pending,
 
                 };
+                var product = new List<Product>();
 
-               await _Uw.OrderRepository.InsertOrder(order);
-               await _Uw.Commit();
+                for (int i = 0; i <= model.ProductType.Length - 1;)
+                {
+                    product.Add(new Product()
+                    {
+                        ProductType = model.ProductType[i],
+                        CreateDate = DateTime.Now,
+                        OrderId = order.Id,
+                        ProductValue = model.ProductValues[i]
+                    });
+                    i++;
+                }
+                await _Uw.OrderRepository.InsertOrder(order);
+                await _Uw.ProductRepository.InsertRangeProduct(product);
+                await _Uw.Commit();
 
                 return Redirect("/");
             }
@@ -66,19 +76,7 @@ namespace StoreSampel.UI.Controllers
 
             return View(model);
         }
-
-        public IActionResult AddProducts()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult AddProducts(م)
-        {
-            iفسهf (ModelState.IsValid)
-            {
-                var Model = model;
-         return View();
-        }
+       
         [HttpGet]
         public async Task<IActionResult> GetModel(int Id)
         {

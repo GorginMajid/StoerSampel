@@ -15,12 +15,12 @@ namespace StoreSampel.UI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IUnitOfWork _Uw;
+        private readonly IUnitOfWork _uw;
 
         public HomeController(ILogger<HomeController> logger, IUnitOfWork uw)
         {
             _logger = logger;
-            _Uw = uw;
+            _uw = uw;
         }
 
 
@@ -33,7 +33,7 @@ namespace StoreSampel.UI.Controllers
 
         public async Task<JsonResult> GetModel(int Id)
         {
-            var models = await _Uw.ModelRepository.GetModelByBrnadId(Id);
+            var models = await _uw.ModelRepository.GetModelByBrnadId(Id);
             return Json(JsonConvert.SerializeObject(models));
         }
     }

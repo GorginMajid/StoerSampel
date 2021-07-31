@@ -31,10 +31,91 @@
                 <span asp-validation-for="TypeId" class="text-danger"></span>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductType" id="form1" class="form-control" />
+                <label class="form-label" asp-for="ProductType"></label>
+                <span asp-validation-for="ProductType" class="text-danger"></span>
+            </div>
+           
+        </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductValues" id="form1" class="form-control" />
+                <label class="form-label" asp-for="ProductValues"></label>
+                <span asp-validation-for="ProductValues" class="text-danger"></span>
 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductType" id="form1" class="form-control" />
+                <label class="form-label" asp-for="ProductType"></label>
+                <span asp-validation-for="ProductType" class="text-danger"></span>
+            </div>
+           
+        </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductValues" id="form1" class="form-control" />
+                <label class="form-label" asp-for="ProductValues"></label>
+                <span asp-validation-for="ProductValues" class="text-danger"></span>
 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductType" id="form1" class="form-control" />
+                <label class="form-label" asp-for="ProductType"></label>
+                <span asp-validation-for="ProductType" class="text-danger"></span>
+            </div>
+           
+        </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductValues" id="form1" class="form-control" />
+                <label class="form-label" asp-for="ProductValues"></label>
+                <span asp-validation-for="ProductValues" class="text-danger"></span>
 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductType" id="form1" class="form-control" />
+                <label class="form-label" asp-for="ProductType"></label>
+                <span asp-validation-for="ProductType" class="text-danger"></span>
+            </div>
+           
+        </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductValues" class="form-control" />
+                <label class="form-label" asp-for="ProductValues"></label>
+                <span asp-validation-for="ProductValues" class="text-danger"></span>
 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductType" class="form-control" />
+                <label class="form-label" asp-for="ProductType"></label>
+                <span asp-validation-for="ProductType" class="text-danger"></span>
+            </div>
+           
+        </div>
+        <div class="col-md-6">
+            <div class="form-outline mt-3">
+                <input asp-for="ProductValues" class="form-control" />
+                <label class="form-label" asp-for="ProductValues"></label>
+                <span asp-validation-for="ProductValues" class="text-danger"></span>
+
+            </div>
+        </div>
+   
+        <div class="AddProducts mt-4 row">
+            
+          <button class="btn btn-outline-success" type="button" onclick="AddedProductToHtml()"><span class="fa fa-plus"></span></button>  
+        </div>
         <div class="col-12 mt-4">
             <button type="submit" class="btn btn-success btn-block">ثبت</button>
         </div>
@@ -43,13 +124,24 @@
 </form>
 @section Scripts
 {
-    <partial name="_ValidationScriptsPartial"></partial>
+    <partial name="_ValidationScriptsPartial"/>
 }
 @section Ajax
 {
 
     <script>
+        function AddedProductToHtml() {
+            var prodcut = $('<div class="col-md-6"><div class=" mt-3">' +
+                ' <label class="form-label" name="ProductType">نوع کالا</label>'+
+                '<input name="ProductType" class="form-control" />'+
+                '<span class="text-danger field-validation-valid" data-valmsg-for="ProductType" data-valmsg-replace="true"></span>'+
+                ' </div></div> <div class="col-md-6"><div class=" mt-3">' +
+                ' <label class="form-label" name="ProductValues">تعداد کالا</label>'+
+                ' <input name="ProductValues" class="form-control" />'+
+                '<span class="text-danger field-validation-valid" data-valmsg-for="ProductValues" data-valmsg-replace="true"></span>');
 
+            $(".AddProducts").append(prodcut);
+        }
         $("#BrandID").change(function () {
             console.log("ok");
             $.ajax({

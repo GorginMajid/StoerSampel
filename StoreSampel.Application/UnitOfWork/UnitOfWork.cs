@@ -12,6 +12,8 @@ namespace StoreSampel.Application.UnitOfWork
         private IModelRepository _modelRepository;
         private ITypeRepository _typeRepository;
         private IOrderRepository _orderRepository;
+        private IProductRepository _productRepository;
+        private IBasketRepository _basketRepository;
         public UnitOfWork(StoreSampelContext context)
         {
             _Context = context;
@@ -42,7 +44,26 @@ namespace StoreSampel.Application.UnitOfWork
                 return _modelRepository;
             }
         }
+        public IBasketRepository BasketRepository
+        {
+            get
+            {
+                if (_basketRepository == null)
+                    _basketRepository = new BasketRepository(this);
 
+                return _basketRepository;
+            }
+        }
+        public IProductRepository ProductRepository
+        {
+            get
+            {
+                if (_productRepository == null)
+                    _productRepository = new ProductRepository(this);
+
+                return _productRepository;
+            }
+        }
         public IOrderRepository OrderRepository
         {
             get

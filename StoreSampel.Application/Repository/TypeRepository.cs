@@ -35,6 +35,7 @@ namespace StoreSampel.Application.Repository
         public async Task DeleteType(Type type)
         {
             _uw.BaseRepository<Type>().Delete(type);
+            await Task.CompletedTask;
         }
 
         public  async Task DeleteType(int typeId)
@@ -45,7 +46,7 @@ namespace StoreSampel.Application.Repository
 
         public async Task UpdateType(Type typeId)
         {
-            _uw.BaseRepository<Type>().Update(typeId);
+            _uw.BaseRepository<Type>().Update(typeId);  await Task.CompletedTask;
         }
         public async Task<IEnumerable<Type>> GetTypeByModelId(int id)
         {
